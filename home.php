@@ -9,6 +9,7 @@
 		<header>
 			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 			<time datatime="<?php the_time( 'Y-m-j' ); ?>"><?php the_time( 'j F, Y' ); ?></time>
+			<?php the_category(); ?>
 		</header>
 		<?php the_excerpt(); ?>
 		<footer>
