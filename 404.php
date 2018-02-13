@@ -1,1 +1,1 @@
-404.php
+<h1>Hola, aqui no hay nada</h1>
