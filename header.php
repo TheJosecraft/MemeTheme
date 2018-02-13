@@ -11,9 +11,7 @@
 	<h1><?php bloginfo('name') ?></h1>
 </header>
 <nav class="navbar navbar-default">
-	<div class="container-fluid">
-      <ul class="main-nav nav navbar-nav">
-        <?php wp_nav_menu( array( 'theme_location' => 'navegation' ) ); ?>
-      </ul>
+	<div class="container-fluid">      
+        <?php wp_nav_menu( array( 'theme_location' => 'navegation' ) ); ?>      
   	</div>
 </nav>
