@@ -5,7 +5,7 @@
   <section>
     <h1><?php the_title(); ?></h1>
     <?php the_author_posts_link(); ?>
-    <?php the_content(); ?>
+    <?php the_excerpt(); ?>
 </section>
 <?php endif; ?>
 <!-- Archivo de barra lateral por defecto -->

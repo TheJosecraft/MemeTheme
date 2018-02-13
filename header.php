@@ -8,12 +8,12 @@
 </head>
 <body>
 <header>
-	<h1><?php bloginfo('name') ?></h1>
-</header>
-<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default">
 	<div class="container-fluid">
-      <ul class="main-nav nav navbar-nav">
-        <?php wp_nav_menu( array( 'theme_location' => 'navegation' ) ); ?>
-      </ul>
+		<div class="navbar-header">
+			<a href="<?php home_url(); ?>" class="navbar-brand"><?php bloginfo('name') ?></a>
+		</div>
+        <?php wp_nav_menu(array('container' => 'ul', 'menu_class' => 'nav navbar-nav', 'theme_location' => 'navigation')); ?>
   	</div>
 </nav>
+</header>
