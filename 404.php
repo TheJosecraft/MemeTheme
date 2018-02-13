@@ -1,1 +1,1 @@
-<h1>Hola, aqui no hay nada</h1>
+<h1>ERROR 404: Hola, aqui no hay nada.</h1>
