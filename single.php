@@ -1,10 +1,10 @@
 <!-- Archivo de cabecera global de Wordpress -->
 <?php get_header(); ?>
 <!-- Contenido del post -->
-<div class="container">
+<div class="container mt-4">
 	<div class="row">
 		<?php if ( have_posts() ) : the_post(); ?>
-	<section class="col-md-9">
+	<section class="col-md-8">
 		<h1><?php the_title(); ?></h1>
 		<time datatime="<?php the_time('Y-m-j'); ?>"><?php the_time('j F, Y'); ?></time>
 		<?php the_category(); ?>
@@ -18,7 +18,7 @@
 <?php endif; ?>
 <!-- Archivo de barra lateral por defecto -->
 <?php get_sidebar(); ?>
+	</div>
 <!-- Archivo de pié global de Wordpress -->
 <?php get_footer(); ?>
-	</div>
 </div>

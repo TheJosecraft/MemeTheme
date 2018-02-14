@@ -20,6 +20,7 @@ add_action( 'init', 'mis_menus' );
 
 function theme_styles(){
 	wp_enqueue_style( 'bootstrap_css', get_template_directory_uri() . '/css/bootstrap.min.css' );
+  wp_enqueue_style( 'fontawesome_css', get_template_directory_uri() . '/css/fontawesome-all.min.css' );
 	wp_enqueue_style('main_css', get_template_directory_uri() . '/style.css');
 }
 
@@ -43,7 +44,7 @@ add_action('wp_enqueue_scripts', 'theme_js');
 function mis_widgets(){
  register_sidebar(
    array(
-       'name'          => __( 'Sidebar' ),
+       'name'          => __( 'sidebar' ),
        'id'            => 'sidebar',
        'before_widget' => '<div class="widget">',
        'after_widget'  => '</div>',
@@ -59,7 +60,7 @@ add_action('init','mis_widgets');
 */
 
 add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 200, 200);
+set_post_thumbnail_size( 600, 800);
 
 add_filter('next_posts_link', 'posts_link_attributes');
 add_filter('previous_posts_link', 'posts_link_attributes');
@@ -67,5 +68,14 @@ add_filter('previous_posts_link', 'posts_link_attributes');
 function posts_links_attributes(){
   return 'class="page-link"';
 }
+
+// activar comentarios anidados por defecto
+function enable_threaded_comments(){
+ if (!is_admin()) {
+  if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1))
+   wp_enqueue_script('comment-reply');
+  }
+}
+add_action('get_header', 'enable_threaded_comments');
 ?>
 

@@ -7,17 +7,15 @@
 <div class="row">
 	<section class="col-md-8">
 <?php while(have_posts()) : the_post(); ?>
-			<article>
-				<header>
-					<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-					<time datatime="<?php the_time( 'Y-m-j' ); ?>"><?php the_time( 'j F, Y' ); ?></time>
-					<?php the_category(); ?>
-				</header>
-				<?php the_excerpt(); ?>
-				<footer>
-					<address>Por <?php the_author_posts_link(); ?></address>
-				</footer>
-			</article>
+
+	<div class="card text-white bg-primary">
+		<a href="<?php the_permalink(); ?>"><?php echo "<img class=card-img-top src=".the_post_thumbnail().">"?></a>
+		<div class="card-body">
+			<h5 class="card-title"><a class="text-white" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+		<time class="card-text text-white float-left" datatime="<?php the_time( 'Y-m-j' ); ?>"><?php the_time( 'j F, Y' ); ?></time>
+		<a class="card-text float-right"><?php comments_number(); ?></a>
+		</div>
+	</div>
 <?php endwhile; ?>
 <ul class="pagination">
 	<li class="pull-left page-item"><?php next_posts_link('<< Entradas antiguas'); ?></li>

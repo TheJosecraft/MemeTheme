@@ -1,10 +1,16 @@
-!-- Cabecera -->
+<!-- Cabecera -->
 <?php get_header(); ?>
 <!-- Búsqueda -->
-<p>Resultados de búsqueda para <strong><?php echo get_search_query() ?></strong></p>
-<!-- Posts -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>Resultados de búsqueda para <strong><?php echo get_search_query() ?></strong></p>
+		</div>
+	</div>
+	<div class="row">
+		<!-- Posts -->
 <?php if (have_posts()) : ?>
-	<section>
+	<section class="col-md-8">
 		<?php while(have_posts()) : the_post(); ?>
 	<article>
 		<header>
@@ -30,3 +36,5 @@
 <?php get_sidebar(); ?>
 <!-- footer -->
 <?php get_footer(); ?>
+	</div>
+</div>
