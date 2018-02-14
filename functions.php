@@ -6,10 +6,10 @@
  */
 function mis_menus() {
   register_nav_menus(
-    array(
-    	'navigation'=>__('Menu de navegación'),
-      
-    )
+	array(
+		'navigation'=>__('Menu de navegación'),
+	  
+	)
   );
 }
 add_action( 'init', 'mis_menus' );
@@ -44,12 +44,12 @@ add_action('wp_enqueue_scripts', 'theme_js');
 function mis_widgets(){
  register_sidebar(
    array(
-       'name'          => __( 'sidebar' ),
-       'id'            => 'sidebar',
-       'before_widget' => '<div class="widget">',
-       'after_widget'  => '</div>',
-       'before_title'  => '<h3>',
-       'after_title'   => '</h3>',
+	   'name'          => __( 'sidebar' ),
+	   'id'            => 'sidebar',
+	   'before_widget' => '<div class="widget">',
+	   'after_widget'  => '</div>',
+	   'before_title'  => '<h3>',
+	   'after_title'   => '</h3>',
    )
  );
 }
@@ -77,5 +77,51 @@ function enable_threaded_comments(){
   }
 }
 add_action('get_header', 'enable_threaded_comments');
+
+function miFormularioDeComentarios($fields){
+	$commenter = wp_get_current_commenter();
+	$user = wp_get_current_user();
+	$nick = $user->exist() ? $user->display_name : '';
+	$req = get_option('require_name_email');
+	$fields['author'] = '<div class="form-group">
+						<label class="sr-only" for="author">Name</label>
+						<input type="text" id="author" class="form-control" name="author" placeholder="Name" value="' . esc_attr($commenter['comment_author']) . '" required>
+						</div>';
+	$fields['email'] = '<div class="form-group">
+						<label class="sr-only" for="email">Name</label>
+						<input type="email" id="email" class="form-control" name="email" placeholder="E-mail" value="' . esc_attr($commenter['comment_author_email']) . '" required>
+						</div>';
+	$fields['url'] = '';
+
+	$fields['comment_field'] = '<div class="form-group">
+								<textarea class="form-control" id="comment" name="comment" rows="6" placeholder="Comment" required></textarea>
+								</div>';
+
+	$fields['submit_field'] = '<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit btn btn-primary" value="Publicar comentario"></p>';
+	return $fields;
+}
+
+add_filter('comment_form_default_fields','miFormularioDeComentarios');
+
+//quitar campo de comentario por defecto
+function my_form_defaults($defaults){
+	if(!is_user_logged_in()){
+		if(isset($defaults['comment_field'])){
+			$defaults['comment_field'] = '';
+			$defaults['submit_field'] = '';
+		}
+	}else{
+		$defaults['comment_field'] = '<div class="form-group">
+									 <textarea class="form-control" id="comment" name="comment" rows="6" placeholder="Comentario.." required></textarea>
+									 </div>';
+		$defaults['submit_field'] = '<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit btn btn-primary" value="Publicar comentario"></p>';							 
+	}
+
+	return $defaults;
+}
+
+add_filter('comment_form_defaults','my_form_defaults');
+
+require_once( 'better_comments.php' );
 ?>
 
