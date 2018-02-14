@@ -60,5 +60,12 @@ add_action('init','mis_widgets');
 
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 200, 200);
+
+add_filter('next_posts_link', 'posts_link_attributes');
+add_filter('previous_posts_link', 'posts_link_attributes');
+
+function posts_links_attributes(){
+  return 'class="page-link"';
+}
 ?>
 
