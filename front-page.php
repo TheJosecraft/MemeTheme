@@ -8,7 +8,7 @@
 	<section class="col-md-8">
 <?php while(have_posts()) : the_post(); ?>
 
-	<div class="card text-white bg-primary">
+	<div class="card text-white bg-primary mb-4">
 		<a href="<?php the_permalink(); ?>"><?php echo "<img class=card-img-top src=".the_post_thumbnail().">"?></a>
 		<div class="card-body">
 			<h5 class="card-title"><a class="text-white" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
