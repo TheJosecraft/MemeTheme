@@ -1,8 +1,10 @@
 <!-- Archivo de cabecera global de Wordpress -->
 <?php get_header(); ?>
 <!-- Contenido del post -->
-<?php if ( have_posts() ) : the_post(); ?>
-  <section>
+<div class="container">
+  <div class="row">
+    <?php if ( have_posts() ) : the_post(); ?>
+  <section class="col-md-9">
     <h1><?php the_title(); ?></h1>
     <time datatime="<?php the_time('Y-m-j'); ?>"><?php the_time('j F, Y'); ?></time>
     <?php the_category(); ?>
@@ -18,3 +20,5 @@
 <?php get_sidebar(); ?>
 <!-- Archivo de pié global de Wordpress -->
 <?php get_footer(); ?>
+  </div>
+</div>

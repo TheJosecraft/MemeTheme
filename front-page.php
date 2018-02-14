@@ -5,17 +5,25 @@
 	<div class="container">
 		<div class="row">
 			<?php if ( have_posts() ) : the_post(); ?>
-			<section>
-		    	<h1><?php the_title(); ?></h1>
-		    	<?php the_author_posts_link(); ?>
-		    	<?php the_content(); ?>
+			<section class="col">
+				<div class="row">
+					<div class="col-md-3">
+						<img class="img-responsive" src="<?php the_post_thumbnail() ?>">
+					</div>
+					<div class="col-md-9">
+						<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+				    	<p>Escrito por: <?php the_author_posts_link(); ?></p>
+				    	<p><?php the_excerpt();?></p>
+					</div>
+					
+				</div>
+		    	
 			</section>
 		<?php endif; ?>
-		</div>
-	</div>
-
-
-<!-- Archivo de barra lateral por defecto -->
+			<!-- Archivo de barra lateral por defecto -->
 <?php get_sidebar(); ?>
+		</div>
 <!-- Archivo de pié global de Wordpress -->
 <?php get_footer(); ?>
+	</div>
+
