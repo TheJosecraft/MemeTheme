@@ -97,7 +97,7 @@ function miFormularioDeComentarios($fields){
 								<textarea class="form-control" id="comment" name="comment" rows="6" placeholder="Comment" required></textarea>
 								</div>';
 
-	$fields['submit_field'] = '<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit btn btn-primary" value="Publicar comentario"><input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID"><input type="hidden" name="comment_parent" id="comment_parent" value="0"></p>';
+	$fields['submit_field'] = '<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit btn btn-primary" value="Publicar comentario">'.get_comment_id_fields().'</p>';
 	return $fields;
 }
 
@@ -114,7 +114,7 @@ function my_form_defaults($defaults){
 		$defaults['comment_field'] = '<div class="form-group">
 									 <textarea class="form-control" id="comment" name="comment" rows="6" placeholder="Comentario.." required></textarea>
 									 </div>';
-		$defaults['submit_field'] = '<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit btn btn-primary" value="Publicar comentario"><input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID"><input type="hidden" name="comment_parent" id="comment_parent" value="0"></p>';							 
+		$defaults['submit_field'] = '<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit btn btn-primary" value="Publicar comentario">'.get_comment_id_fields().'</p>';							 
 	}
 
 	return $defaults;
