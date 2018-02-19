@@ -5,3 +5,10 @@ Author: Germán Menéndez Bécker y José Carlos Raya León
 Description: Plantilla desarrollada como parte del tutorial de como "Como crear una plantilla de Wordpress desde cero". 
 Version: 1.0 
 */
+body{	
+	background-image: url(fondo.jpg); 
+	background-color: #0cb33b;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
