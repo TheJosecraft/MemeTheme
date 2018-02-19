@@ -91,7 +91,7 @@ function miFormularioDeComentarios($fields){
 						<label class="sr-only" for="email">Name</label>
 						<input type="email" id="email" class="form-control" name="email" placeholder="E-mail" value="' . esc_attr($commenter['comment_author_email']) . '" required>
 						</div>';
-	$fields['url'] = '';
+	// $fields['url'] = '';
 
 	$fields['comment_field'] = '<div class="form-group">
 								<textarea class="form-control" id="comment" name="comment" rows="6" placeholder="Comment" required></textarea>
